@@ -1,6 +1,6 @@
-const express = require('express')
-const app = express()
-const mysql = require('mysql2')
+const express = require('express');
+const app = express();
+const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -8,28 +8,20 @@ const connection = mysql.createConnection({
     database: 'usersdb',
     password: 'root',
     port: '3306'
-})
+});
 
 connection.connect( err => {
-    if(err){
-        return console.log('Error' + err.message)
-    }else {
-        console.log('Подключение к MySQL выполнено')
+    if (err) {
+        return console.log('Error' + err.message);
+    } else {
+        console.log('Подключение к MySQL выполнено');
     }
-})
-
-
-// app.get('/', (req, res) => {
-//     connection.query('SELECT * FROM users', (err, result) => {
-//         if(err) console.log(err)
-//         else res.send(result)
-//     })
-// })
+});
 
 app.get('/', (req, res)=> {
-    res.send('<h1>Hi</h1>')
-})
+    res.send('<h1>Hi</h1>');
+});
 
 app.listen(3000, () => {
-    console.log('Server run')
-})
+    console.log('Server run');
+});
